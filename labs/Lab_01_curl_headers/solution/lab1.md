@@ -39,11 +39,11 @@ Set-Cookie: wire=bb4572b912e6a76845b2d48cbd5e5b3e; path=/; HttpOnly; SameSite=La
 Expires: Thu, 19 Nov 1981 08:52:00 GMT
 Cache-Control: no-store, no-cache, must-revalidate
 Pragma: no-cache
-
+```
 
 ### RZD
 - __[🚝 РЖД](https://www.rzd.ru/)__
-
+```shell
 * Connected to www.rzd.ru (212.164.138.124) port 443
 * using HTTP/1.x
 > HEAD / HTTP/1.1
@@ -60,11 +60,11 @@ Pragma: no-cache
 Connection: close
 Content-Length: 109
 Content-Type: text/html
-
+```
 
 ### PYTHON
 - __[🐍 Python](https://www.python.org/)__
-
+```shell
 * Connected to www.python.org (146.75.116.223) port 443
 * using HTTP/1.x
 > HEAD / HTTP/1.1
@@ -111,6 +111,6 @@ X-Cache-Hits: 52, 8
 X-Timer: S1694458030.300936,VS0,VE0
 Vary: Cookie
 Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-
+```
 ___________________________________________________
 
