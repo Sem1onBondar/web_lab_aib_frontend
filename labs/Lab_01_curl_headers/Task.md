@@ -14,7 +14,8 @@ ___________________________________________________
 - __[🐍 Python](https://www.python.org/)__
 - __[Saint 🌠 GIT](https://git-scm.com/)__
 - __[🐵 Jetbrains](https://www.jetbrains.com/)__
-- __[💪 VSC - this is best choose](https://code.visualstudio.com/)__
+- __[💪 VSC - this is best choose
+(https://code.visualstudio.com/)__
 
 >Заповедь создателя
 >>_this list most be continued_
