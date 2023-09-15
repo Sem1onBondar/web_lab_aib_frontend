@@ -115,9 +115,5 @@ X-Timer: S1694458030.300936,VS0,VE0
 Vary: Cookie
 Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 ```
-<<<<<<< HEAD
-___________________________________________________
-=======
 ___________________________________________________
 
->>>>>>> cff09177c12648ab6474bab29387d8772e7de7b0
