@@ -5,12 +5,12 @@
 ## гр. АСБ-3-036
 ___________________________________________________
 
-#### Скрипт: curl http(s)://сайт -I -L -k -v
+#### Скрипт: `curl http(s)://сайт -I -L -k -v`
 
 
-### RGUPS
+### ВЕБ-САЙТ **RGUPS**
 - __[‍🎓 РГУПС](https://www.rgups.ru)__
-- 
+
 ```shell
 * Connected to www.rgups.ru (80.72.224.90) port 443 - "Подключено к веб-сайту, его IP и порт сервера"
 * using HTTP/1.x - "Семейство версий HTTP"
@@ -42,9 +42,9 @@ Cache-Control: no-store, no-cache, must-revalidate
 Pragma: no-cache
 ```
 
-### RZD
+### ВЕБ-САЙТ **RZD**
 - __[🚝 РЖД](https://www.rzd.ru/)__
-- 
+
 ```shell
 * Connected to www.rzd.ru (212.164.138.124) port 443
 * using HTTP/1.x
@@ -64,9 +64,9 @@ Content-Length: 109
 Content-Type: text/html
 ```
 
-### PYTHON
+### ВЕБ-САЙТ **PYTHON**
 - __[🐍 Python](https://www.python.org/)__
-- 
+
 ```shell
 * Connected to www.python.org (146.75.116.223) port 443
 * using HTTP/1.x
