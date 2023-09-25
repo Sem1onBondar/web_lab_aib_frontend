@@ -163,7 +163,7 @@
 </table></div>
 ```
 3. Тип: **POST**
-4. Первое - это конечно (BASE)БАЗА... `https://www.rgups.ru/ajax/schedule.php?` - структура(тело), а делее:
+4. Первое - это конечно (BASE) БАЗА... `https://www.rgups.ru/ajax/schedule.php?` - структура(тело), а делее:
 	1. `action=timetable` - **Обращаемся к расписанию**
 	2. `fac-id=1` - **ID факультета**
 	3. `course-id=3` - **ID курса**
