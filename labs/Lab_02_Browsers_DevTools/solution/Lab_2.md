@@ -96,15 +96,78 @@
 
 ------------
 
-### Задание №5. Исполнение кода в консоли. Использование консоли для отладки.
+### Задание №5. Определение параметров запроса сайт университета **RGUPS**
+1. `https://www.rgups.ru/ajax/schedule.php?action=timetable&fac-id=1&course-id=3&group-id=26424&edu-type=internal` - **Просмотр расписание за 1 KLIK**
+2. Чтобы просмотреть тело, нужно знать: "А как же его просмотреть?"
+	1. Открываем главный сайт университета `https://www.rgups.ru/services/time/`
+	2. Переходим во вкладку: Расписание, Очное-ИТУ, 3 курс.
+	3. Далее `CTRL + SHIFT + I` и после этого выбираем группу (АСБ-3-036).
+	4. В открывшийся вкладке разработчика в поле **Name** выбираем `schedule.php`
+	5. После чего выбираем `Responce` и именно тут будет находиться тело отвера.
+**Небольшой пример части тела:**
+```html
+<div class="schedule-section">
+					<div class="schedule-section-legend"><i></i> – в режиме видеоконференцсвязи</div>
+    		
+    <table class="table">             <tr>
+                <th class="" colspan="6">
+                    Понедельник (сегодня)                </th>
+            </tr>
+                      <tr>
+                        <td class="" >1</td>
+                        <td class="" >8.20-9.50</td>
+                        <td class="" >обе недели</td>
+                            <td class="">Военная подготовка ()</td>
+                            <td class=""> ..</td>
+                            <td class=""></td>
+.
+.
+.
+                <th class=" info" colspan="6">
+                    Вторник (завтра)                </th>
+            </tr>
+                      <tr>
+                        <td class="success" >2</td>
+                        <td class="success" >10.05-11.35</td>
+                        <td class="success" >обе недели</td>
+                            <td class="success">Системы и технологии искусственного интеллекта (ЛЕК)</td>
+                            <td class="success">МОСКАТ Н.А.</td>
+                            <td class="success">Д404</td>
+                    </tr>
+                      <tr>
+                        <td class="" >3</td>
+                        <td class="" >12.05-13.35</td>
+                        <td class="" >обе недели</td>
+                            <td class="">Экономика и менеджмент (ПРАК)</td>
+                            <td class="">РАДЧЕНКО Е.В.</td>
+                            <td class="">М305</td>
+.
+.
+.
+                        <td class="" >2</td>
+                        <td class="" >10.05-11.35</td>
+                        <td class="" >обе недели</td>
+                            <td class="">Экономика и менеджмент (ЛЕК)</td>
+                            <td class="">КАЛАШНИКОВ И.А.</td>
+                            <td class="">Д404</td>
+                    </tr>
+                      <tr>
+                        <td class="" >3</td>
+                        <td class="" >12.05-13.35</td>
+                        <td class="" >обе недели</td>
+                            <td class="">Системное программное обеспечение вычислительных систем (ЛЕК)</td>
+                            <td class="">ЖУКОВ В.В.</td>
+                            <td class="">Д404</td>
+                    </tr>
 
-```shell
-<10/2
-<5
-<2+2
-<4
-<5*13
-<65
-<2**2
-<4
+</table></div>
 ```
+3. Тип: **POST**
+4. Первое - это конечно (BASE)БАЗА... `https://www.rgups.ru/ajax/schedule.php?` - структура(тело), а делее:
+	1. `action=timetable` - **Обращаемся к расписанию**
+	2. `fac-id=1` - **ID факультета**
+	3. `course-id=3` - **ID курса**
+	4. `group-id=26424` - **ID группы**
+	5. `edu-type=internal` - **Тип обучения**
+**Как это выглядит:**
+![alt](Schedule.png)
