@@ -170,4 +170,4 @@
 	4. `group-id=26424` - **ID группы**
 	5. `edu-type=internal` - **Тип обучения**
 **Как это выглядит:**
-![alt](Schedule.png)
+![alt](rosp.png)
