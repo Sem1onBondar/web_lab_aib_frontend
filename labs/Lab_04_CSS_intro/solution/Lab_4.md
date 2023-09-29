@@ -93,4 +93,4 @@ p {
 
 ### Вывод задачи:
 
-![alt](go.png)
+![alt](imgs\go.png)"
