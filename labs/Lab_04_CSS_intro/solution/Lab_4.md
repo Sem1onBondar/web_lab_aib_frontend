@@ -8,7 +8,6 @@
 
 ### Код задачи:
 
-<!-- HTML -->
 ```html
 <!DOCTYPE html>
 <html lang="ru">
@@ -32,8 +31,7 @@
 </html>
 ```
 
-<!-- CSS -->
-```html
+```css
 body {
   
 }
