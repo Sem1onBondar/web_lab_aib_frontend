@@ -10,7 +10,6 @@
 
 ### Код задачи:
 
-<!-- HTML -->
 ```html
 <!DOCTYPE html>
 <html lang="ru">
@@ -199,7 +198,7 @@ main h1 {
 ```
 ### Вывод задачи №2:
 
-![alt](imgs\r1.png)
+![alt](imgs/r1.png)
 
 ## Задание №2. Адаптация под десктопы
 
@@ -266,4 +265,4 @@ font-size: 18px;
 ```
 ### Вывод задачи №3:
 
-![alt](imgs\r2.png)
+![alt](imgs/r2.png)
