@@ -265,4 +265,4 @@ font-size: 18px;
 ```
 ### Вывод задачи №3:
 
-![alt](imgs/r2.png)
+![alt](imgs/r1.1.png)
