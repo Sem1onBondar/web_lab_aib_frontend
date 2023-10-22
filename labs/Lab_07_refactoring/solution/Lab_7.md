@@ -18,8 +18,6 @@
 </head>
 <body>
     <script>
-
-// Задание 1: level stone
 var varOne = prompt('Введите первую переменную');
 var varTwo = prompt('Введите вторую переменную');
 
