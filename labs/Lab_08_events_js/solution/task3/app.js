@@ -20,13 +20,11 @@ function generateColorBlock() {
 
         colorArea.appendChild(colorBlock);
 
-        // Ограничение на количество блоков
         const colorBlocks = colorArea.querySelectorAll('.color-block');
         if (colorBlocks.length > 15) {
             colorArea.removeChild(colorBlocks[0]);
         }
 
-        // Изменение цвета квадрата
         const colorSquare = document.getElementById('colorSquare');
         colorSquare.style.backgroundColor = rgbColor;
     } else {

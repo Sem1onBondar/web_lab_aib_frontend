@@ -15,7 +15,7 @@ function changeBackgroundColor() {
         colorSquare.style.backgroundColor = rgbColor;
     } else {
         colorResult.textContent = 'Неверное значение';
-        colorSquare.style.backgroundColor = 'white'; // Сброс цвета квадрата в случае ошибки
+        colorSquare.style.backgroundColor = 'white';
     }
 }
 
@@ -23,4 +23,4 @@ redInput.addEventListener('input', changeBackgroundColor);
 greenInput.addEventListener('input', changeBackgroundColor);
 blueInput.addEventListener('input', changeBackgroundColor);
 
-changeBackgroundColor(); // Инициализация цвета
+changeBackgroundColor();
