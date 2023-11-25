@@ -20,15 +20,15 @@
 **Формат выходных данных**  
 В выходной файл выведите единственное число — количество способов добраться конём до правого нижнего угла доски.
 
-**Код программы 1**
+**Код программы**
 ```python
 import math
 
 def count_ways(n, m):
     daR3_Bo_n1 = [[0]*m for _ in range(n)]
-    B_S_A = [(2, 1), (1, 2)]  # возможные ходы коня
+    B_S_A = [(2, 1), (1, 2)]
 
-    daR3_Bo_n1[0][0] = 1  # начальная позиция
+    daR3_Bo_n1[0][0] = 1
 
     for i in range(n):
         for j in range(m):
@@ -37,13 +37,13 @@ def count_ways(n, m):
                 if 0 <= x < n and 0 <= y < m:
                     daR3_Bo_n1[i][j] += daR3_Bo_n1[x][y]
 
-    return daR3_Bo_n1[-1][-1]  # правый нижний угол доски
+    return daR3_Bo_n1[-1][-1]
 
 if __name__ == '__main__':
     n, m = map(int, input().split())
     print(count_ways(n, m))
 ```
-**Запросы**
+
 ![alt](imgs/1.png)
 
 ------------
@@ -68,13 +68,13 @@ if __name__ == '__main__':
 **Формат выходных данных**  
 Выведите сумму найденных медианных значений.
 
-**Код программы 2**
+**Код программы**
 ```python
 import heapq
 
 def median_sum(N_Da3r, X_Bo1):
-    left = []  # max heap
-    right = []  # min heap
+    left = []
+    right = []
     medians = []
 
     for i in range(N_Da3r):
@@ -83,7 +83,6 @@ def median_sum(N_Da3r, X_Bo1):
         else:
             heapq.heappush(right, X_Bo1[i])
 
-        # balance heaps
         if len(left) > len(right) + 1:
             heapq.heappush(right, -heapq.heappop(left))
         elif len(right) > len(left):
@@ -98,7 +97,7 @@ if __name__ == '__main__':
     X_Bo1 = list(map(int, input().split()))
     print(median_sum(N_Da3r, X_Bo1))
 ```
-**Запросы**
+
 ![alt](imgs/2.png)
 
 ------------
@@ -128,19 +127,17 @@ if __name__ == '__main__':
 Отформатируйте гистограмму так, чтобы нижние концы столбиков были на одной строке, первая строка и первый столбец были непустыми. 
 Не отделяйте столбики друг от друга. Отсортируйте столбики в порядке увеличения кодов символов.
 
-**Код программы 3**
+**Код программы**
 ```python
 def histogram(daR3_Bo_n1):
-    # Создаем словарь для подсчета символов
+    
     count = {}
     for char in daR3_Bo_n1:
         if char not in (' ', '\n'):
             count[char] = count.get(char, 0) + 1
 
-    # Получаем максимальное количество повторений символа
     max_count = max(count.values())
 
-    # Создаем гистограмму
     histogram = []
     for i in range(max_count, 0, -1):
         row = ''
@@ -151,17 +148,15 @@ def histogram(daR3_Bo_n1):
                 row += ' '
         histogram.append(row)
 
-    # Добавляем строку с символами
     histogram.append(''.join(sorted(count.keys())))
 
     return '\n'.join(histogram)
 
 if __name__ == '__main__':
-    # Чтение ввода из файла
     with open('Bond_Sem761.txt', 'r') as file:
         daR3_Bo_n1 = file.read()
     print(histogram(daR3_Bo_n1))
 ```
-**Запросы**
+
 ![alt](imgs/3.png)
 
