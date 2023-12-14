@@ -22,23 +22,16 @@
 
 **Код программы**
 ```python
-import math
-
-def count_ways(n, m):
-    num_ways = [[0]*m for _ in range(n)]
-    knight_moves = [(2, 1), (1, 2)]
-    num_ways[0][0] = 1
-    for i in range(n):
-        for j in range(m):
-            for dx, dy in knight_moves:
-                x, y = i - dx, j - dy
-                if 0 <= x < n and 0 <= y < m:
-                    num_ways[i][j] += num_ways[x][y]
-    return num_ways[-1][-1]
-
-if __name__ == '__main__':
-    n, m = map(int, input().split())
-    print(count_ways(n, m))
+N, M = map(int, input().split())
+arr = [[0] * M for _ in range(N)]
+arr[0][0] = 1
+for i in range(1, N):
+    for j in range(1, M):
+        if i - 2 >= 0 and j - 1 >= 0:
+            arr[i][j] += arr[i - 2][j - 1]
+        if i - 1 >= 0 and j - 2 >= 0:
+            arr[i][j] += arr[i - 1][j - 2]
+print(arr[N - 1][M - 1])
 ```
 
 ![alt](imgs/1.png)
@@ -67,29 +60,22 @@ if __name__ == '__main__':
 
 **Код программы**
 ```python
-import heapq
+import heapq as hq
 
-def calculate_median_sum(size, elements):
-    left_heap = []
-    right_heap = []
-    medians = []
-
-    for i in range(size):
-        if not left_heap or elements[i] < -left_heap[0]:
-            heapq.heappush(left_heap, -elements[i])
-        else:
-            heapq.heappush(right_heap, elements[i])
-        if len(left_heap) > len(right_heap) + 1:
-            heapq.heappush(right_heap, -heapq.heappop(left_heap))
-        elif len(right_heap) > len(left_heap):
-            heapq.heappush(left_heap, -heapq.heappop(right_heap))
-        medians.append(-left_heap[0])
+def median_sum(size, elements):
+    left, right, medians = [], [], []
+    for ele in elements:
+        hq.heappush(left, -ele) if not left or ele < -left[0] else hq.heappush(right, ele)
+        (hq.heappush(right, -hq.heappop(left))
+         if len(left) > len(right) + 1 else hq.heappush(left, -hq.heappop(right))
+         if len(right) > len(left) else None)
+        medians.append(-left[0])
     return sum(medians)
 
 if __name__ == '__main__':
     size = int(input())
     elements = list(map(int, input().split()))
-    print(calculate_median_sum(size, elements))
+    print(median_sum(size, elements))
 ```
 
 ![alt](imgs/2.png)
@@ -124,21 +110,11 @@ if __name__ == '__main__':
 **Код программы**
 ```python
 def generate_histogram(input_text):
-    character_count = {}
-    for char in input_text:
-        if char not in (' ', '\n'):
-            character_count[char] = character_count.get(char, 0) + 1
-    max_count = max(character_count.values())
-    histogram = []
-    for i in range(max_count, 0, -1):
-        row = ''
-        for char in sorted(character_count.keys()):
-            if character_count[char] >= i:
-                row += '#'
-            else:
-                row += ' '
-        histogram.append(row)
-    histogram.append(''.join(sorted(character_count.keys())))
+    char_count = {char: input_text.count(char) for char in set(input_text) - {' ', '\n'}}
+    max_count = max(char_count.values())
+    histogram = [''.join('#' if char_count[char] >= i else ' '
+                         for char in sorted(char_count)) for i in range(max_count, 0, -1)]
+    histogram.append(''.join(sorted(char_count.keys())))
     return '\n'.join(histogram)
 
 if __name__ == '__main__':
