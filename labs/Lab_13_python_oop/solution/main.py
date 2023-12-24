@@ -11,4 +11,4 @@ if __name__ == '__main__':
     data = {'clients': data_clients['clients'], 'payments': data_payments['payments']}
 
     output = XlsAnalyticPaymentWriter(data)
-    output.write_excel_report(f'payments_analytics_{datetime.now().strftime('%Y-%m-%d')}.xlsx')
+    output.write_excel_report(f'payments_analytics_{datetime.now().strftime("%Y-%m-%d")}.xlsx')
