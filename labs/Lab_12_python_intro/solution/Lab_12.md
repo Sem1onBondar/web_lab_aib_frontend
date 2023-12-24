@@ -35,10 +35,9 @@ def oleg_ways(N, M):
 
 
 if __name__ == '__main__':
-    f = open('Bond_Sem761.txt', 'r')
-    N, M = list(map(int, f.readline().split()))
-    f = open('Bond_Sem761.txt', 'a')
-    f.write(str(f'\n{oleg_ways(N, M)}'))
+    with open('Bond_Sem761.txt', 'r') as f:
+        N, M = map(int, f.readline().split())
+    print(oleg_ways(N, M))
 ```
 
 ![alt](imgs/1.png)
@@ -76,6 +75,7 @@ def sum_median(arr):
 
 
 print(sum_median([5, 10, 8, 1, 7, 3, 9, 6, 2, 4]))
+# print(sum_median([5, 3, 1, 2, 4]))
 ```
 
 ![alt](imgs/2.png)
@@ -124,6 +124,10 @@ def histogram(text: str):
 
 if __name__ == '__main__':
     text = 'Hello, world!'
+#    text = 'Twas brillig, and the slithy toves' \
+#           'Did gyre and gimble in the wabe;' \
+#           'All mimsy were the borogoves,' \
+#           'And the mome raths outgrabe.'
     print(histogram(text))
 ```
 
