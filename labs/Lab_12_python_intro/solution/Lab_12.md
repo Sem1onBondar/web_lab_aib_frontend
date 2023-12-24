@@ -22,16 +22,23 @@
 
 **Код программы**
 ```python
-N, M = map(int, input().split())
-arr = [[0] * M for _ in range(N)]
-arr[0][0] = 1
-for i in range(1, N):
-    for j in range(1, M):
-        if i - 2 >= 0 and j - 1 >= 0:
-            arr[i][j] += arr[i - 2][j - 1]
-        if i - 1 >= 0 and j - 2 >= 0:
-            arr[i][j] += arr[i - 1][j - 2]
-print(arr[N - 1][M - 1])
+def oleg_ways(N, M):
+    dp = [[0] * M for _ in range(N)]
+    dp[0][0] = 1
+    for i in range(N):
+        for j in range(M):
+            if i - 2 >= 0 and j - 1 >= 0:
+                dp[i][j] += dp[i - 2][j - 1]
+            if i - 1 >= 0 and j - 2 >= 0:
+                dp[i][j] += dp[i - 1][j - 2]
+    return dp[N - 1][M - 1]
+
+
+if __name__ == '__main__':
+    f = open('Bond_Sem761.txt', 'r')
+    N, M = list(map(int, f.readline().split()))
+    f = open('Bond_Sem761.txt', 'a')
+    f.write(str(f'\n{oleg_ways(N, M)}'))
 ```
 
 ![alt](imgs/1.png)
@@ -60,22 +67,15 @@ print(arr[N - 1][M - 1])
 
 **Код программы**
 ```python
-import heapq as hq
+def sum_median(arr):
+    count = 0
+    for item in arr:
+        tarr = sorted(arr[:item])
+        count += tarr[len(tarr) // 2] if len(tarr) % 2 != 0 else tarr[len(tarr) // 2 - 1]
+    return count
 
-def median_sum(size, elements):
-    left, right, medians = [], [], []
-    for ele in elements:
-        hq.heappush(left, -ele) if not left or ele < -left[0] else hq.heappush(right, ele)
-        (hq.heappush(right, -hq.heappop(left))
-         if len(left) > len(right) + 1 else hq.heappush(left, -hq.heappop(right))
-         if len(right) > len(left) else None)
-        medians.append(-left[0])
-    return sum(medians)
 
-if __name__ == '__main__':
-    size = int(input())
-    elements = list(map(int, input().split()))
-    print(median_sum(size, elements))
+print(sum_median([5, 10, 8, 1, 7, 3, 9, 6, 2, 4]))
 ```
 
 ![alt](imgs/2.png)
@@ -109,18 +109,22 @@ if __name__ == '__main__':
 
 **Код программы**
 ```python
-def generate_histogram(input_text):
-    char_count = {char: input_text.count(char) for char in set(input_text) - {' ', '\n'}}
-    max_count = max(char_count.values())
-    histogram = [''.join('#' if char_count[char] >= i else ' '
-                         for char in sorted(char_count)) for i in range(max_count, 0, -1)]
-    histogram.append(''.join(sorted(char_count.keys())))
-    return '\n'.join(histogram)
+from collections import Counter
+
+def histogram(text: str):
+    text = text.replace(' ', '')
+    chars = Counter(text)
+    sorted_chars = sorted(chars.items())
+    max_height = max(chars.values())
+    sorted_text_columsn = "\n".join(
+        "".join(["#" if height <= column[1] else " " for column in sorted_chars]) for height in
+        range(max_height, 0, -1))
+    return sorted_text_columsn + "\n" + "".join([column[0] for column in sorted_chars])
+
 
 if __name__ == '__main__':
-    with open('Bond_Sem761.txt', 'r') as file:
-        input_text = file.read()
-    print(generate_histogram(input_text))
+    text = 'Hello, world!'
+    print(histogram(text))
 ```
 
 ![alt](imgs/3.png)
